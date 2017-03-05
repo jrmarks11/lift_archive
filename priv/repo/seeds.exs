@@ -9,3 +9,7 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+Lift.Repo.delete_all Lift.User
+
+Lift.User.changeset(%Lift.User{}, %{name: "John Marks", email: "john@marks.com", password: "secret", password_confirmation: "secret"})
+|> Lift.Repo.insert!

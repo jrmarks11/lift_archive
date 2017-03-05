@@ -7,29 +7,23 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hello Lift!</title>
+    <title>Hello Admin1!</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
   <body>
-    <header class="header" style="padding-top: 15px">
-      <ol class="breadcrumb text-right">
-        <%= if Coherence.current_user(@conn) do %>
-          <%= if @conn.assigns[:remembered] do %>
-            <li style="color: red;">!!</li>
-          <% end %>
-        <% end %>
-        <%= Lift.Coherence.ViewHelpers.coherence_links(@conn, :layout) %>
-      </ol>
-    </header>
-
     <div class="container">
+      <header class="header">
+        <nav role="navigation">
+        </nav>
+        <span class="logo"></span>
+      </header>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
 
       <main role="main">
-      <%= render @view_module, @view_template, assigns %>
+        <%= render @view_module, @view_template, assigns %>
       </main>
 
     </div> <!-- /container -->
